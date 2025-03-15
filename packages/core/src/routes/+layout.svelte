@@ -1,5 +1,5 @@
 <script>
-	import {Provider,DefaultLayout,V1Layout,Pill} from "$lib/index";
+	import {Provider,DefaultLayout,V1Layout,Pill,autoLoadTheme} from "$lib/index";
 	import "../app.css"
 	function drawerOpened(name){
       console.log(name + "opened")
@@ -7,9 +7,15 @@
 	function drawerclosed(name){
       console.log(name + "closed")
 	}
-
+	let {children} = $props()
+	$effect(()=>{
+		autoLoadTheme()
+	})
 </script>
 <Provider >
- h
+
+	
+		{@render children?.()}
+
 </Provider>
 
