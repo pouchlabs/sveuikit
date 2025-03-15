@@ -1,0 +1,29 @@
+{
+  "name": "sveuikit",
+  "version": "1.0.0",
+  "description": "functional svelte5 ui kit",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pouchlabs/sveuikit.git"
+  },
+  "workspaces":["packages/*","apps/*"],
+  "keywords":[
+    "daisyui",
+    "svelte",
+    "ui-kit",
+    "ui-lib",
+    "framework",
+    "tailwindcss",
+    "css"
+  ],
+  "author": "pouchlabs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pouchlabs/sveuikit/issues"
+  },
+  "homepage": "https://github.com/pouchlabs/sveuikit#readme"
+}

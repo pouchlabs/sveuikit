@@ -1,0 +1,99 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+@plugin "daisyui" {
+    themes: light --default, dark --prefersdark, cupcake,synthwave,business,dracula,acid,silk;
+}
+
+
+body,html{
+    min-height:100vh;
+    max-width:calc(100vw - 5px);
+    overflow-x:hidden;
+    display:contents;
+  }
+  .no-scrollbar{
+      -ms-overflow-style: none;  /* Internet Explorer 10+ */
+      scrollbar-width: none;  /* Firefox */
+   &::-webkit-scrollbar { 
+      display: none;  /* Safari and Chrome */
+   }
+  }
+
+  .s-lg{
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+    
+    
+  .s-1{
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    }
+    .s-2{
+    
+    }
+    .s-inner{
+      box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+    }
+    
+  
+
+
+.l-default-no-rtl{
+    @apply fixed top-0 left-0 mt-2 ml-2 mr-1 mb-1;
+}
+.l-default-no-rtl-aside{
+    @apply pl-4 pt-10 pr-2 pb-4;
+}
+.pill{
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+.truncateTexts {
+    width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* This is where the magic happens. */
+  }
+.pill-btn{
+    @apply relative  flex items-center justify-center h-12 w-12 mt-2 mb-2 mx-auto  btn btn-ghost btn-soft btn-primary p-1 hover:rounded-xl rounded-3xl transition-all duration-300 ease-linear cursor-pointer;
+    &.active{
+      @apply bg-primary text-white;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    }
+}
+
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
