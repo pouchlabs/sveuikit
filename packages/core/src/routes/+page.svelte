@@ -1,5 +1,5 @@
 <script>
-import {ThemeSelect} from "$lib"
+import {ThemeSelect,Loader} from "$lib"
 let themes=["cupcake","synthwave","business","dracula","acid","silk","retro","nord","bumblebee","emerald","valentine","cyberpank",
     "garden","forest","acqua","halloween","lofi","pastel","fantasy","wireframe","black","luxury","dracula","cymk","silk","abyss","dim","night","winter"
 ]
