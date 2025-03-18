@@ -1,9 +1,14 @@
 <script>
-import {ThemeSelect,Loader} from "$lib"
+import {ThemeSelect,Loader,Button} from "$lib"
 let themes=["cupcake","synthwave","business","dracula","acid","silk","retro","nord","bumblebee","emerald","valentine","cyberpank",
     "garden","forest","acqua","halloween","lofi","pastel","fantasy","wireframe","black","luxury","dracula","cymk","silk","abyss","dim","night","winter"
 ]
-
+function start(){
+  console.log("start")
+}
+function end(){
+  console.log("end")
+}
 </script>
 <div class="navbar w-full ">
   <div class="navbar-start">
@@ -42,3 +47,6 @@ let themes=["cupcake","synthwave","business","dracula","acid","silk","retro","no
     <ThemeSelect themes={themes}></ThemeSelect>
   </div>
 </div>
+<Button href="/" onStart={start} onFinish={end}>
+  create
+</Button>

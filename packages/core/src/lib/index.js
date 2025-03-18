@@ -9,6 +9,7 @@ import V1Layout from "./layouts/v1/v1.svelte";
 import Pill from "./components/pill";
 import {ThemeSelect} from "./components/themeselect"
 import Loader from "./components/loader";
+import Button from "./components/button";
 
 //utils
 import {autoLoadTheme} from "./utils/autoloadtheme.js"
@@ -19,5 +20,6 @@ export {
     Pill,
     ThemeSelect,
     Loader,
+    Button,
     autoLoadTheme
 }
