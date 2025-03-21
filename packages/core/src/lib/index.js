@@ -10,6 +10,7 @@ import Pill from "./components/pill";
 import {ThemeSelect} from "./components/themeselect"
 import Loader from "./components/loader";
 import Button from "./components/button";
+import Card from "./components/card";
 
 //utils
 import {autoLoadTheme} from "./utils/autoloadtheme.js"
@@ -21,5 +22,6 @@ export {
     ThemeSelect,
     Loader,
     Button,
+    Card,
     autoLoadTheme
 }

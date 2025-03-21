@@ -1,5 +1,5 @@
 <script>
-import {ThemeSelect,Loader,Button} from "$lib"
+import {ThemeSelect,Loader,Button,Card} from "$lib"
 let themes=["cupcake","synthwave","business","dracula","acid","silk","retro","nord","bumblebee","emerald","valentine","cyberpank",
     "garden","forest","acqua","halloween","lofi","pastel","fantasy","wireframe","black","luxury","dracula","cymk","silk","abyss","dim","night","winter"
 ]
@@ -47,6 +47,14 @@ function end(){
     <ThemeSelect themes={themes}></ThemeSelect>
   </div>
 </div>
-<Button href="/" onStart={start} onFinish={end}>
-  create
-</Button>
+<section class="flex items-center justify-center flex-wrap gap-2  my-2">
+  <div class="flex flex-col flex-none">
+    <h1 class="text-3xl text-primary">
+      Functional Svelte5 Ui Kit
+    </h1>
+      
+    </div>
+ <Card bordered shadow="md" classes=" w-80 h-auto cursor-pointer">
+ n
+ </Card>
+</section>
