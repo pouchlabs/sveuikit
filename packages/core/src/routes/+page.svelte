@@ -1,25 +1,57 @@
 <script>
-import {ThemeSelect,Loader,Button,Card} from "$lib"
+import {ThemeSelect,Loader,Button,Card,V1Layout} from "$lib"
 let themes=["cupcake","synthwave","business","dracula","acid","silk","retro","nord","bumblebee","emerald","valentine","cyberpank",
     "garden","forest","acqua","halloween","lofi","pastel","fantasy","wireframe","black","luxury","dracula","cymk","silk","abyss","dim","night","winter"
 ]
 function start(){
-  console.log("start")
+  // https://dummyjson.com/icon/HASH/SIZE/?type=png (or svg)
+fetch('https://dummyjson.com/icon/abc123/150') // png is default
+.then(response => response.blob()) // Convert response to blob
+.then( async blob => {
+  let i = document.createElement("img")
+ 
+  const reader = new FileReader()
+// 2. Add a handler for the 'onload' event
+reader.onload = (e) => {
+    // 5. Get the result when the 'onload' event is triggered.
+    const base64data = reader.result  
+    i.setAttribute("src",base64data);             
+   document.body.appendChild(i)
+}
+// 3. Add a handler for the 'onerror' event
+reader.onerror = () => {                
+    console.log('error')
+}
+// 4. Call 'readAsDataURL' method
+reader.readAsDataURL(blob)
+})
+// Blob {size: SIZE, type: 'image/png'}
+
 }
 function end(){
-  console.log("end")
+
 }
 </script>
-<div class="navbar w-full ">
+<div class="navbar w-full  ">
   <div class="navbar-start">
- 
+    <a href="/" class="btn btn-circle btn-ghost">
+      <div class="avatar">
+        <div class="w-8 rounded">
+  
+          <img
+            src="/logo.svg"
+            alt="sveuikit logo" />
+        </div>
+      </div>
+    </a>
+   
 <span class="text-3xl m-2">SveuiKit</span>
 <div class="dropdown dropdown-bottom m-2 dropdown-hover">
   <div tabindex="0" role="button" class="btn btn-circle btn-sm btn-ghost">
     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /> </svg>
 
   </div>
-  <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+  <ul tabindex="0" class="dropdown-content menu mt-1 w-80 bg-base-200 min-w-20 flex flex-col align-middle  min-h-20 text-base-content rounded-box top-px   max-h-[calc(100vh-8.6rem)] overflow-auto  border-white/5  outline-black/5 shadow-2xl">
     <li><a>Item 1</a></li>
     <li><a>Item 2</a></li>
     <li class="lg:hidden">
@@ -47,14 +79,16 @@ function end(){
     <ThemeSelect themes={themes}></ThemeSelect>
   </div>
 </div>
-<section class="flex items-center justify-center flex-wrap gap-2  my-2">
-  <div class="flex flex-col flex-none">
-    <h1 class="text-3xl text-primary">
+<section class="flex items-center px-15 justify-center flex-wrap gap-2  my-2">
+  <div class="flex flex-col  lg:mx-auto">
+    <h1 class="text-3xl font-bold text-primary">
       Functional Svelte5 Ui Kit
     </h1>
       
     </div>
- <Card bordered shadow="md" classes=" w-80 h-auto cursor-pointer">
- n
- </Card>
+<div class="mx-auto flex flex-wrap gap-2">
+  <Button onStart={start} text=""   onFinish={end}>start & end</Button>
+  <Button text="creating.." >create</Button>
+  <Button text=""  classes="btn-circle btn-md btn-ghost font-bold text-md" >+</Button>
+</div>
 </section>

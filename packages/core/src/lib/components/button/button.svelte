@@ -1,6 +1,6 @@
 <script>
     import {Loader} from "../loader/index.js";
-    let {href="",onStart=function(){},onFinish=function(){},children,delay=3000,target="self",soft=false,size="sm",variant="primary",classes="",text="loading..",shape="square"}=$props();
+    let {href="",onStart=function(){},onFinish=function(){},children,delay=3000,target="self",soft=false,size="btn-sm",classes="",text="loading..",shape="btn-squire"}=$props();
     let loading = $state(false);
     function handleAsync(e){
       let btn = e.target || e.srcElement;
@@ -16,7 +16,7 @@
 
 </script>
 {#if href && typeof href === "string" && href.length > 0}
-<a onclick={(e)=>handleAsync(e)} href="{href}" {target} class:btn-soft={soft===true} class="btn btn-{shape} btn-{variant} btn-{size} {classes}"> 
+<a onclick={(e)=>handleAsync(e)} href="{href}" {target} class:btn-soft={soft===true} class="btn btn-primary  {classes}"> 
     {#if loading}
     <Loader show size="md" classes>
        {text}
@@ -28,7 +28,7 @@
 </a>
 {:else}
    
-<button onclick={(e)=>handleAsync(e)} class:btn-soft={soft===true} class="btn active btn-{shape} btn-{variant} btn-{size} {classes}">
+<button onclick={(e)=>handleAsync(e)} class:btn-soft={soft===true} class="btn btn-primary  {shape}  {size} {classes}">
     {#if loading}
        <Loader show size="md" classes>
           {text}
