@@ -6,11 +6,11 @@
       let btn = e.target || e.srcElement;
       btn.setAttribute("disabled",true);
       loading=true;
-      onStart.call(arguments)
+      if( typeof onStart === "function")onStart.call(arguments);
       setTimeout(()=>{
            loading=false;
            btn.removeAttribute("disabled","")
-           onFinish.call(arguments)
+           if( typeof onFinish === "function")onFinish.call(arguments);
       },delay)
     }
 

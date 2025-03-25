@@ -1,16 +1,22 @@
 <script>
-let {themes=["default","retro","cyberpunk","retro","valentine","aqua"]}=$props();
+let {themes=["light","dark","black","aqua"],onSelectedTheme=()=>{}}=$props();
 let current = $state();
-
 function changeTheme(e){
-let theme = e.target.getAttribute("data-set-theme")
-  document.querySelector("html")?.setAttribute("data-theme",theme)
-  localStorage.setItem("theme",e.target.value)
-  current = localStorage.getItem("theme")
-console.log(theme)
-e.target.classList.add("menu-active")
-
+  let btn = e.target || e.srcElement;
+   let theme = btn.getAttribute("data-set-theme");
+  document.querySelector("html")?.setAttribute("data-theme",theme);
+  localStorage.setItem("theme",theme);
+  current = localStorage.getItem("theme");
+  btn.classList.add("menu-active");
+  if( typeof onSelectedTheme === "function")onSelectedTheme.call(arguments,current);
 }
+$effect(()=>{
+  current = localStorage.getItem("theme");
+  if( typeof onSelectedTheme === "function" && localStorage.getItem("theme")){
+    onSelectedTheme(localStorage.getItem("theme") || null);
+  }
+})
+
 </script>
 <div title="change theme" class="dropdown dropdown-end block">
     <div tabindex="0" role="button" class="btn m-1">
@@ -30,8 +36,8 @@ e.target.classList.add("menu-active")
        <ul tabindex="0" class="menu w-52">
         {#each [...new Set(themes)] as theme}
         {#if typeof theme === "string"}
-        <li><button onclick={(e)=>changeTheme(e)} class="gap-3 px-2 mt-2 mb-2 " class:menu-active={current === theme} data-set-theme="{theme}" data-act-class="">
-            <div data-theme="{theme}" class="bg-base-100 grid shrink-0 grid-cols-2 gap-0.5 rounded-md p-1 shadow-sm"><div class="bg-base-content size-1 rounded-full"></div> <div class="bg-primary size-1 rounded-full"></div> <div class="bg-secondary size-1 rounded-full"></div> <div class="bg-accent size-1 rounded-full"></div></div> <div class="w-32 truncate">{theme}</div> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="invisible h-3 w-3 shrink-0"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"></path></svg></button></li>
+        <li data-set-theme="{theme}" ><button onclick={(e)=>changeTheme(e)} id={theme} class="gap-3 px-2 mt-2 mb-2 " class:menu-active={current === theme} data-set-theme="{theme}" data-act-class="">
+            <div data-theme="{theme}" data-set-theme="{theme}" class="bg-base-100 grid shrink-0 grid-cols-2 gap-0.5 rounded-md p-1 shadow-sm"><div class="bg-base-content size-1 rounded-full"></div> <div data-set-theme="{theme}" class="bg-primary size-1 rounded-full"></div> <div data-set-theme="{theme}" class="bg-secondary size-1 rounded-full"></div> <div data-set-theme="{theme}" class="bg-accent size-1 rounded-full"></div></div> <div data-set-theme="{theme}" class="w-32 truncate">{theme}</div> <svg data-set-theme="{theme}" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="invisible h-3 w-3 shrink-0"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"></path></svg></button></li>
         {/if}
         {/each} 
     </ul>
