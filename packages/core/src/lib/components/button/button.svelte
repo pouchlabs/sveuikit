@@ -16,7 +16,7 @@
 
 </script>
 {#if href && typeof href === "string" && href.length > 0}
-<a onclick={(e)=>handleAsync(e)} href="{href}" {target} class:btn-soft={soft===true} class="btn btn-primary  {classes}"> 
+<a onclick={(e)=>handleAsync(e)} href="{href}" {target} class:btn-soft={soft===true} class="btn btn-primary trancateTexts  {classes}"> 
     {#if loading}
     <Loader show size="md" classes>
        {text}
@@ -28,7 +28,7 @@
 </a>
 {:else}
    
-<button onclick={(e)=>handleAsync(e)} class:btn-soft={soft===true} class="btn btn-primary  {shape}  {size} {classes}">
+<button onclick={(e)=>handleAsync(e)} class:btn-soft={soft===true} class="btn btn-primary trancateTexts  {shape}  {size} {classes}">
     {#if loading}
        <Loader show size="md" classes>
           {text}

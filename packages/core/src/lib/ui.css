@@ -1,6 +1,7 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
+@import "tailwindcss-animated";
 @plugin "daisyui" {
     themes: light --default, dark --prefersdark, cupcake,synthwave,business,dracula,acid,silk,retro,nord,bumblebee,emerald,valentine,cyberpank,
     garden,forest,acqua,halloween,lofi,pastel,fantasy,wireframe,black,luxury,dracula,cymk,silk,abyss,dim,night,winter

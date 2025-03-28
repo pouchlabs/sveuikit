@@ -11,7 +11,7 @@ import {ThemeSelect} from "./components/themeselect"
 import Loader from "./components/loader";
 import Button from "./components/button";
 import Card from "./components/card";
-
+import Dropdown from "./components/dropdown";
 //utils
 import {autoLoadTheme} from "./utils/autoloadtheme.js"
 export {
@@ -23,5 +23,6 @@ export {
     Loader,
     Button,
     Card,
+    Dropdown,
     autoLoadTheme
 }

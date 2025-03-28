@@ -1,5 +1,6 @@
 <script>
 import {ThemeSelect,Loader,Button,Card,V1Layout} from "$lib"
+	import Dropdown from "$lib/components/dropdown/dropdown.svelte";
 let themes=["light","dark","brand","cupcake","synthwave","business","dracula","acid","silk","retro","nord","bumblebee","emerald","valentine","cyberpank",
     "garden","forest","acqua","halloween","lofi","pastel","fantasy","wireframe","black","luxury","dracula","cymk","silk","abyss","dim","night","winter"
 ]
@@ -32,7 +33,7 @@ reader.readAsDataURL(blob)
 
 }
 function end(){
-
+console.log("close")
 }
 </script>
 <div class="navbar w-full  ">
@@ -83,15 +84,43 @@ function end(){
   </div>
 </div>
 <section class="flex items-center px-15 justify-center flex-wrap gap-2  my-2">
-  <div class="flex flex-col  lg:mx-auto">
-    <h1 class="text-3xl font-bold text-primary">
+  <div class="flex flex-col prose  lg:mx-auto">
+    <h1 class="text-3xl animate-jump-in animate-delay-300 animate-once font-bold text-primary">
       Functional Svelte5 Ui Kit
     </h1>
-      
+      <p class="text-xl">
+        A simple,lightweight and functional svelte5 ui kit.
+      </p>
+      <div class="flex flex-wrap gap-2">
+         <Button href="/docs">
+             Get Started
+         </Button>
+      </div>
+
     </div>
 <div class="mx-auto flex flex-wrap gap-2">
   <Button onStart={start} text=""   onFinish={end}>start & end</Button>
   <Button text="creating.." >create</Button>
   <Button text=""  classes="btn-circle btn-md btn-ghost font-bold text-md" >+</Button>
+<Card bordered shadow="2xl" classes="relative " >
+  <div class="card-body">
+    <h2 class="card-title">Card Title</h2>
+    <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+    <div class="card-actions justify-end">
+      <button class="btn btn-primary">Buy Now</button>
+    </div>
+  </div>
+</Card>
+<Dropdown bordered onClose={end} onLoad={()=>{console.log("load")}}   shadow="2xl">
+  {#snippet toggle()} 
+     <Button>
+        dropdown
+     </Button>
+  {/snippet}
+  <ul tabindex="0" class="">
+    <li><a>Item 1</a></li>
+    <li><a>Item 2</a></li>
+  </ul>
+</Dropdown>
 </div>
 </section>
