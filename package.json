@@ -2,11 +2,9 @@
   "name": "sveuikit",
   "version": "1.0.0",
   "description": "functional svelte5 ui kit",
-  "main": "index.js",
-  "scripts": {
-    "build": "vite build",
-    "dev":"vite dev",
-    "preview":"vite preview"
+  "main": "index.js", 
+  "scripts": { 
+    "test":""  
   },
   "repository": {
     "type": "git",

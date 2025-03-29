@@ -121,12 +121,12 @@ console.log("close")
     view console
   </Toggle>
 <Checkbox variant="checkbox-primary"  onUnchecked={()=>console.log("unchecked")} rtl checked onChecked={()=>console.log("checked")} >
-
+ 
 </Checkbox>
 <Button  onStart={()=>new Nottify("home-noty").show({message:"hi",delay:2000,classes:"bg-success animate-jump-in"})}>
-  show notification
+  show notifications
 </Button>
-</Card>
+</Card> 
 
 <Dropdown  bordered hover onClose={end} onOpen={()=>{console.log("load")}}  classes="mt-1"  shadow="2xl">
   {#snippet toggle()} 
