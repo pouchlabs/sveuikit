@@ -1,6 +1,7 @@
 <script>
 import {ThemeSelect,Loader,Button,Card,V1Layout} from "$lib"
 	import Dropdown from "$lib/components/dropdown/dropdown.svelte";
+  import Toggle from "$lib/components/toggles/toggle.svelte";
 let themes=["light","dark","brand","cupcake","synthwave","business","dracula","acid","silk","retro","nord","bumblebee","emerald","valentine","cyberpank",
     "garden","forest","acqua","halloween","lofi","pastel","fantasy","wireframe","black","luxury","dracula","cymk","silk","abyss","dim","night","winter"
 ]
@@ -111,6 +112,8 @@ console.log("close")
     </div>
   </div>
 </Card>
+<Toggle onUnchecked={()=>console.log("unchecked")} rtl checked onChecked={()=>console.log("checked")}>
+</Toggle>
 <Dropdown bordered onClose={end} onLoad={()=>{console.log("load")}}   shadow="2xl">
   {#snippet toggle()} 
      <Button>
