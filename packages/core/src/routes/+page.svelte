@@ -2,6 +2,8 @@
 import {ThemeSelect,Loader,Button,Card,V1Layout} from "$lib"
 	import Dropdown from "$lib/components/dropdown/dropdown.svelte";
   import Toggle from "$lib/components/toggles/toggle.svelte";
+  import Checkbox from "$lib/components/checkboxes/checkbox.svelte";
+  import {Noty,Notification,Nottify} from "$lib/components/notifications";
 let themes=["light","dark","brand","cupcake","synthwave","business","dracula","acid","silk","retro","nord","bumblebee","emerald","valentine","cyberpank",
     "garden","forest","acqua","halloween","lofi","pastel","fantasy","wireframe","black","luxury","dracula","cymk","silk","abyss","dim","night","winter"
 ]
@@ -84,6 +86,7 @@ console.log("close")
     <ThemeSelect onSelectedTheme={onThe} themes={themes}></ThemeSelect>
   </div>
 </div>
+<Notification id="home-noty"></Notification>
 <section class="flex items-center px-15 justify-center flex-wrap gap-2  my-2">
   <div class="flex flex-col prose  lg:mx-auto">
     <h1 class="text-3xl animate-jump-in animate-delay-300 animate-once font-bold text-primary">
@@ -103,6 +106,7 @@ console.log("close")
   <Button onStart={start} text=""   onFinish={end}>start & end</Button>
   <Button text="creating.." >create</Button>
   <Button text=""  classes="btn-circle btn-md btn-ghost font-bold text-md" >+</Button>
+  <button class="btn">Daisy btn</button>
 <Card bordered shadow="2xl" classes="relative " >
   <div class="card-body">
     <h2 class="card-title">Card Title</h2>
@@ -112,13 +116,21 @@ console.log("close")
     </div>
   </div>
 </Card>
-<Toggle onUnchecked={()=>console.log("unchecked")} rtl checked onChecked={()=>console.log("checked")}>
-</Toggle>
-<Dropdown bordered onClose={end} onLoad={()=>{console.log("load")}}   shadow="2xl">
+<Card>
+  <Toggle variant="checkbox-primary" size="toggle-md" onUnchecked={()=>console.log("unchecked")} rtl checked onChecked={()=>console.log("checked")}>
+    view console
+  </Toggle>
+<Checkbox variant="checkbox-primary"  onUnchecked={()=>console.log("unchecked")} rtl checked onChecked={()=>console.log("checked")} >
+
+</Checkbox>
+<Button  onStart={()=>new Nottify("home-noty").show({message:"hi",delay:2000,classes:"bg-success animate-jump-in"})}>
+  show notification
+</Button>
+</Card>
+
+<Dropdown  bordered hover onClose={end} onOpen={()=>{console.log("load")}}  classes="mt-1"  shadow="2xl">
   {#snippet toggle()} 
-     <Button>
-        dropdown
-     </Button>
+    <button class="btn">dropdown </button>
   {/snippet}
   <ul tabindex="0" class="">
     <li><a>Item 1</a></li>
