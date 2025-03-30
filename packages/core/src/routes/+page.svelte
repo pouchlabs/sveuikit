@@ -123,7 +123,7 @@ console.log("close")
 <Checkbox variant="checkbox-primary"  onUnchecked={()=>console.log("unchecked")} rtl checked onChecked={()=>console.log("checked")} >
  
 </Checkbox>
-<Button  onStart={()=>new Nottify("home-noty").show({message:"hi",delay:2000,classes:"bg-success animate-jump-in"})}>
+<Button delay=1  onStart={()=>new Nottify("home-noty").show({message:"hi",delay:4000,classes:"alert alert-info animate-fade-left"})}>
   show notifications
 </Button>
 </Card> 

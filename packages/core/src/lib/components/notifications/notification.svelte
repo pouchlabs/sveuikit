@@ -5,6 +5,6 @@ let {id=""}=$props();
 
 
 </script>
-<div id={id} class="min-w-[200px] fixed z-[70] top-12 right-[25px]">
+<div id={id} class="min-w-[200px] fixed z-[70] top-12 flex flex-col gap-2 p-2 right-[25px]">
    
 </div>
