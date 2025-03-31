@@ -1,10 +1,11 @@
 <script lang="ts">
 import Noty from "./noty.svelte";
-let {id=""}=$props();
+
+let {id="",rtl=false,bottom=false}=$props();
 
 
 
 </script>
-<div id={id} class="min-w-[200px] fixed z-[70] top-12 flex flex-col gap-2 p-2 right-[25px]">
-   
+<div  class:bottom-1={bottom === true} class:right-1={rtl === true } id={id} class="stack bg-base-100 stack-to max-w-[80vw] rounded-box p-1  z-1 bottom-0 max-h[85vh] mb-5 fixed  flex flex-col overflow-hidden  no-scrollbar gap-2  ">
+  
 </div>

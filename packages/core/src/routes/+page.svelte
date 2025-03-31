@@ -39,6 +39,7 @@ function end(){
 console.log("close")
 }
 </script>
+<Notification id="home-noty"></Notification>
 <div class="navbar w-full  ">
   <div class="navbar-start">
     <a href="/" class="btn btn-circle btn-ghost">
@@ -86,7 +87,7 @@ console.log("close")
     <ThemeSelect onSelectedTheme={onThe} themes={themes}></ThemeSelect>
   </div>
 </div>
-<Notification id="home-noty"></Notification>
+
 <section class="flex items-center px-15 justify-center flex-wrap gap-2  my-2">
   <div class="flex flex-col prose  lg:mx-auto">
     <h1 class="text-3xl animate-jump-in animate-delay-300 animate-once font-bold text-primary">
@@ -123,8 +124,18 @@ console.log("close")
 <Checkbox variant="checkbox-primary"  onUnchecked={()=>console.log("unchecked")} rtl checked onChecked={()=>console.log("checked")} >
  
 </Checkbox>
-<Button delay=1  onStart={()=>new Nottify("home-noty").show({message:"hi",delay:4000,classes:"alert alert-info animate-fade-left"})}>
-  show notifications
+<Button delay=0  onStart={()=>new Nottify("home-noty").show({message:`<span>we use cookies for no reason.</span>
+  <div>
+    <button class="btn btn-sm">Deny</button>
+    <button class="btn btn-sm btn-primary">Accept</button>
+  </div>`,delay:0})}>
+  show notifications 
+</Button>
+<Button delay=0  onStart={()=>new Nottify("home-noty").show({message:` success added app2`,delay:3000,variant:"success"})}>
+  show notifica 2
+</Button>
+<Button delay=0  onStart={()=>new Nottify("home-noty").closeAll()}>
+  clear all
 </Button>
 </Card> 
 
