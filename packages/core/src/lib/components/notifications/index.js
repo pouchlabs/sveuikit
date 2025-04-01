@@ -8,19 +8,22 @@ export class Nottify{
     this.id = id;
     this.notifications = [];
   }
-  show(opts={message:"new noty",id:"",delay:0,variant:"primary",shadow:"2xl"}){
+  show(opts={message:"new noty",id:"",delay:0,variant:"primary",shadow:"2xl",isSnack:false}){
     let id = opts.id || this.id+crypto.randomUUID();
     let delay = opts.delay || 0;
     let message = opts.message || "new Noty";
-    let variant = opts.variant || "primary";
+    let variant = opts.variant || "alert-primary" ;
     let shadow = opts.shadow || "2xl";
+    let isSnack = opts.isSnack || false;
    mount(Noty, {target: this.container,props:{
    message,
    id,
    delay,
    shadow,
-   variant
+   variant,
+   isSnack
    }});
+   
  this.notifications.push({id,delay,message}) 
   }
   closeAll(){

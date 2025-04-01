@@ -1,16 +1,9 @@
 <script lang="ts">
 
 import {
-	blur,
-	crossfade,
-	draw,
-	fade,
-	fly,
 	scale,
-	slide
 } from 'svelte/transition';
-let {message,id="",variant="primary",shadow="2xl",delay=0} = $props();
-
+let {message,id="",variant="",shadow="2xl",delay=0,isSnack=false} = $props();
 $effect(()=>{
  if(delay > 0){
   setTimeout(()=>{
@@ -28,7 +21,8 @@ $effect(()=>{
 </script>
 
  
-    <div id={id}   role="alert" in:scale  class="alert alert-{variant}  trancateTexts   border outline-1 z-[10000000]   rounded-box  border-white/5   outline-black/5 alert-vertical sm:alert-horizontal shadow-{shadow}">
+    <div id={id}   role="alert" in:scale  class="alert {variant}  trancateTexts mx-auto    border outline-1 z-[10000000]   rounded-box  border-white/5   outline-black/5 alert-vertical sm:alert-horizontal shadow-{shadow}">
+      {#if isSnack === false}
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -39,7 +33,8 @@ $effect(()=>{
           stroke-linejoin="round"
           stroke-width="2"
           d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-      </svg>
+      </svg> 
+     {/if}
       <span>{@html message}</span>
       {#if delay === 0}
            <button onclick={()=>{

@@ -1,5 +1,5 @@
 <script>
-  /** @type {{id: any, backdrop?: boolean, classes?: string, full?: boolean, children?: import('svelte').Snippet, content?: import('svelte').Snippet, action?: import('svelte').Snippet}} */
+import Button from "../button/button.svelte";
   let {
     id,
     backdrop = false,
@@ -7,30 +7,51 @@
     full = false,
     children,
     content,
-    action
+    action,
+    open=false,
+    delay=3000,
+    onModalOpen=()=>{},
+    onModalClose=()=>{}
   } = $props();
-    function toggleModal(id=""){
-      
-    let modal = document.getElementById(id);
-    if(modal?.classList.contains("modal-open")){
-        modal?.classList.remove("modal-open")
-    }else{
-     modal?.classList.add("modal-open")
+  let auto = $state(false)
+  let isOpen = $derived(auto); 
+  
+    export function toggleModal(){
+       auto=!auto
+       if(auto){
+        onModalOpen.apply(arguments)
+        return
+       }
+       onModalClose.apply(arguments)
     }
- }
+ $effect.pre(()=>{
+  if(open){
+    setTimeout(()=>{ 
+     auto=true
+     return onModalOpen()
+  },delay)
+  return
+  }
+  
+ })
 </script>
 
-{@render children?.()}
-<div id="{id}" class="modal">
-  <div class="modal-box {classes}">
+<div   class="p-2">
+  
+  <Button text="" delay={delay} onFinish={()=>{toggleModal()}}>open modal</Button>
+  
+</div>
+<dialog id="{id}" class:modal-open={isOpen} class="modal">
+  
+  <div class="modal-box border outline-1 bg-base-200  border-white/5   outline-black/5 alert-vertical sm:alert-horizontal  {classes}">
      {@render content?.()}
     <div class="modal-action">
        {@render action?.()}
     </div>
   </div>
   {#if backdrop}
-  <button  onclick={()=> toggleModal(id)} class="modal-backdrop" >
+  <button  onclick={()=>{toggleModal()}} class="modal-backdrop cursor-pointer" >
 
   </button>
   {/if}
-</div>
+</dialog>

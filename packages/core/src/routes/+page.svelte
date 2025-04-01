@@ -3,7 +3,8 @@ import {ThemeSelect,Loader,Button,Card,V1Layout} from "$lib"
 	import Dropdown from "$lib/components/dropdown/dropdown.svelte";
   import Toggle from "$lib/components/toggles/toggle.svelte";
   import Checkbox from "$lib/components/checkboxes/checkbox.svelte";
-  import {Noty,Notification,Nottify} from "$lib/components/notifications";
+  import {Notification,Nottify} from "$lib/components/notifications";
+  import Modal from "$lib/components/modal/modal.svelte";
 let themes=["light","dark","brand","cupcake","synthwave","business","dracula","acid","silk","retro","nord","bumblebee","emerald","valentine","cyberpank",
     "garden","forest","acqua","halloween","lofi","pastel","fantasy","wireframe","black","luxury","dracula","cymk","silk","abyss","dim","night","winter"
 ]
@@ -38,8 +39,9 @@ reader.readAsDataURL(blob)
 function end(){
 console.log("close")
 }
+let autoModal;
 </script>
-<Notification id="home-noty"></Notification>
+<Notification bottom={false} rt id="home-noty"></Notification>
 <div class="navbar w-full  ">
   <div class="navbar-start">
     <a href="/" class="btn btn-circle btn-ghost">
@@ -124,14 +126,10 @@ console.log("close")
 <Checkbox variant="checkbox-primary"  onUnchecked={()=>console.log("unchecked")} rtl checked onChecked={()=>console.log("checked")} >
  
 </Checkbox>
-<Button delay=0  onStart={()=>new Nottify("home-noty").show({message:`<span>we use cookies for no reason.</span>
-  <div>
-    <button class="btn btn-sm">Deny</button>
-    <button class="btn btn-sm btn-primary">Accept</button>
-  </div>`,delay:0})}>
+<Button delay=0  onStart={()=>new Nottify("home-noty").show({message:`<span>we use cookies for no reason.</span>`,delay:4000,shadow:"lg",variant:"alert-error"})}>
   show notifications 
 </Button>
-<Button delay=0  onStart={()=>new Nottify("home-noty").show({message:` success added app2`,delay:3000,variant:"success"})}>
+<Button delay=0  onStart={()=>new Nottify("home-noty").show({message:` success added app2`,delay:3000,isSnack:true})}>
   show notifica 2
 </Button>
 <Button delay=0  onStart={()=>new Nottify("home-noty").closeAll()}>
@@ -148,5 +146,168 @@ console.log("close")
     <li><a>Item 2</a></li>
   </ul>
 </Dropdown>
+<Modal  ope backdrop classes="" id="user" >
+  {#snippet content()}
+  <div class="overflow-x-auto">
+    <table class="table">
+      <!-- head -->
+      <thead>
+        <tr>
+          <th>
+            <label>
+              <input type="checkbox" class="checkbox" />
+            </label>
+          </th>
+          <th>Name</th>
+          <th>Job</th>
+          <th>Favorite Color</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- row 1 -->
+        <tr>
+          <th>
+            <label>
+              <input type="checkbox" class="checkbox" />
+            </label>
+          </th>
+          <td>
+            <div class="flex items-center gap-3">
+              <div class="avatar">
+                <div class="mask mask-squircle h-12 w-12">
+                  <img
+                    src="https://img.daisyui.com/images/profile/demo/2@94.webp"
+                    alt="Avatar Tailwind CSS Component" />
+                </div>
+              </div>
+              <div>
+                <div class="font-bold">Hart Hagerty</div>
+                <div class="text-sm opacity-50">United States</div>
+              </div>
+            </div>
+          </td>
+          <td>
+            Zemlak, Daniel and Leannon
+            <br />
+            <span class="badge badge-ghost badge-sm">Desktop Support Technician</span>
+          </td>
+          <td>Purple</td>
+          <th>
+            <button class="btn btn-ghost btn-xs">details</button>
+          </th>
+        </tr>
+        <!-- row 2 -->
+        <tr>
+          <th>
+            <label>
+              <input type="checkbox" class="checkbox" />
+            </label>
+          </th>
+          <td>
+            <div class="flex items-center gap-3">
+              <div class="avatar">
+                <div class="mask mask-squircle h-12 w-12">
+                  <img
+                    src="https://img.daisyui.com/images/profile/demo/3@94.webp"
+                    alt="Avatar Tailwind CSS Component" />
+                </div>
+              </div>
+              <div>
+                <div class="font-bold">Brice Swyre</div>
+                <div class="text-sm opacity-50">China</div>
+              </div>
+            </div>
+          </td>
+          <td>
+            Carroll Group
+            <br />
+            <span class="badge badge-ghost badge-sm">Tax Accountant</span>
+          </td>
+          <td>Red</td>
+          <th>
+            <button class="btn btn-ghost btn-xs">details</button>
+          </th>
+        </tr>
+        <!-- row 3 -->
+        <tr>
+          <th>
+            <label>
+              <input type="checkbox" class="checkbox" />
+            </label>
+          </th>
+          <td>
+            <div class="flex items-center gap-3">
+              <div class="avatar">
+                <div class="mask mask-squircle h-12 w-12">
+                  <img
+                    src="https://img.daisyui.com/images/profile/demo/4@94.webp"
+                    alt="Avatar Tailwind CSS Component" />
+                </div>
+              </div>
+              <div>
+                <div class="font-bold">Marjy Ferencz</div>
+                <div class="text-sm opacity-50">Russia</div>
+              </div>
+            </div>
+          </td>
+          <td>
+            Rowe-Schoen
+            <br />
+            <span class="badge badge-ghost badge-sm">Office Assistant I</span>
+          </td>
+          <td>Crimson</td>
+          <th>
+            <button class="btn btn-ghost btn-xs">details</button>
+          </th>
+        </tr>
+        <!-- row 4 -->
+        <tr>
+          <th>
+            <label>
+              <input type="checkbox" class="checkbox" />
+            </label>
+          </th>
+          <td>
+            <div class="flex items-center gap-3">
+              <div class="avatar">
+                <div class="mask mask-squircle h-12 w-12">
+                  <img
+                    src="https://img.daisyui.com/images/profile/demo/5@94.webp"
+                    alt="Avatar Tailwind CSS Component" />
+                </div>
+              </div>
+              <div>
+                <div class="font-bold">Yancy Tear</div>
+                <div class="text-sm opacity-50">Brazil</div>
+              </div>
+            </div>
+          </td>
+          <td>
+            Wyman-Ledner
+            <br />
+            <span class="badge badge-ghost badge-sm">Community Outreach Specialist</span>
+          </td>
+          <td>Indigo</td>
+          <th>
+            <button class="btn btn-ghost btn-xs">details</button>
+          </th>
+        </tr>
+      </tbody>
+      <!-- foot -->
+      <tfoot>
+        <tr>
+          <th></th>
+          <th>Name</th>
+          <th>Job</th>
+          <th>Favorite Color</th>
+          <th></th>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+  {/snippet}
+  
+</Modal>
 </div>
 </section>

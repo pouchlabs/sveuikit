@@ -6,6 +6,10 @@ let {id="",rtl=false,bottom=false}=$props();
 
 
 </script>
-<div  class:bottom-1={bottom === true} class:right-1={rtl === true } id={id} class="stack bg-base-100 stack-to max-w-[80vw] rounded-box p-1  z-1 bottom-0 max-h[85vh] mb-5 fixed  flex flex-col overflow-hidden  no-scrollbar gap-2  ">
-  
+<div  class:bottom-1={bottom === true} class:right-1={rtl === true }  class="fixed carousel bg-base-10 carousel-vertical  no-scrollbar stack stack-top max-h-[100vh]  max-w-[80vw] rounded-box p-1  z-1" >
+  <div id={id}  class= " min-w-[200px]  py-9 my-2 relative  flex flex-col    gap-2 " >
+
+  </div>
+
+
 </div>
