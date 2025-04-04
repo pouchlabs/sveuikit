@@ -5,6 +5,7 @@ import {ThemeSelect,Loader,Button,Card,V1Layout} from "$lib"
   import Checkbox from "$lib/components/checkboxes/checkbox.svelte";
   import {Notification,Nottify} from "$lib/components/notifications";
   import Modal from "$lib/components/modal/modal.svelte";
+	import Range from "$lib/components/range/range.svelte";
 let themes=["light","dark","brand","cupcake","synthwave","business","dracula","acid","silk","retro","nord","bumblebee","emerald","valentine","cyberpank",
     "garden","forest","acqua","halloween","lofi","pastel","fantasy","wireframe","black","luxury","dracula","cymk","silk","abyss","dim","night","winter"
 ]
@@ -109,7 +110,13 @@ let autoModal;
   <Button onStart={start} text=""   onFinish={end}>start & end</Button>
   <Button text="creating.." >create</Button>
   <Button text=""  classes="btn-circle btn-md btn-ghost font-bold text-md" >+</Button>
+
   <button class="btn">Daisy btn</button>
+  <div class="mockup-code w-60">
+    <pre data-prefix="$"><code>npm i @sveuikit/core</code></pre>
+    <pre data-prefix=">" class="text-warning"><code>installing...</code></pre>
+    <pre data-prefix=">" class="text-success"><code>Done!</code></pre>
+  </div>
 <Card bordered shadow="2xl" classes="relative " >
   <div class="card-body">
     <h2 class="card-title">Card Title</h2>
@@ -119,14 +126,15 @@ let autoModal;
     </div>
   </div>
 </Card>
-<Card>
+<Card classes='gap-2'>
   <Toggle variant="checkbox-primary" size="toggle-md" onUnchecked={()=>console.log("unchecked")} rtl checked onChecked={()=>console.log("checked")}>
     view console
   </Toggle>
+  <Range value={10} onValue={(v)=>console.log(v+ "%")}> range</Range>
 <Checkbox variant="checkbox-primary"  onUnchecked={()=>console.log("unchecked")} rtl checked onChecked={()=>console.log("checked")} >
  
 </Checkbox>
-<Button delay=0  onStart={()=>new Nottify("home-noty").show({message:`<span>we use cookies for no reason.</span>`,delay:4000,shadow:"lg",variant:"alert-error"})}>
+<Button delay=0  onStart={()=>new Nottify("home-noty").show({message:`<span>we use cookies for no reason.</span>`,delay:0,shadow:"lg",variant:"alert-error"})}>
   show notifications 
 </Button>
 <Button delay=0  onStart={()=>new Nottify("home-noty").show({message:` success added app2`,delay:3000,isSnack:true})}>
@@ -137,7 +145,7 @@ let autoModal;
 </Button>
 </Card> 
 
-<Dropdown  bordered hover onClose={end} onOpen={()=>{console.log("load")}}  classes="mt-1"  shadow="2xl">
+<Dropdown  bordered hov onClose={end} onOpen={()=>{console.log("load")}}  classes="mt-1"  shadow="2xl">
   {#snippet toggle()} 
     <button class="btn">dropdown </button>
   {/snippet}
@@ -146,166 +154,35 @@ let autoModal;
     <li><a>Item 2</a></li>
   </ul>
 </Dropdown>
-<Modal  ope backdrop classes="" id="user" >
+<Modal  open onModalOpen={()=>console.log("m open")} onModalClose={()=>console.log("m close")} backdrop classes="" id="user" >
   {#snippet content()}
-  <div class="overflow-x-auto">
-    <table class="table">
-      <!-- head -->
-      <thead>
-        <tr>
-          <th>
-            <label>
-              <input type="checkbox" class="checkbox" />
-            </label>
-          </th>
-          <th>Name</th>
-          <th>Job</th>
-          <th>Favorite Color</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- row 1 -->
-        <tr>
-          <th>
-            <label>
-              <input type="checkbox" class="checkbox" />
-            </label>
-          </th>
-          <td>
-            <div class="flex items-center gap-3">
-              <div class="avatar">
-                <div class="mask mask-squircle h-12 w-12">
-                  <img
-                    src="https://img.daisyui.com/images/profile/demo/2@94.webp"
-                    alt="Avatar Tailwind CSS Component" />
-                </div>
-              </div>
-              <div>
-                <div class="font-bold">Hart Hagerty</div>
-                <div class="text-sm opacity-50">United States</div>
-              </div>
-            </div>
-          </td>
-          <td>
-            Zemlak, Daniel and Leannon
-            <br />
-            <span class="badge badge-ghost badge-sm">Desktop Support Technician</span>
-          </td>
-          <td>Purple</td>
-          <th>
-            <button class="btn btn-ghost btn-xs">details</button>
-          </th>
-        </tr>
-        <!-- row 2 -->
-        <tr>
-          <th>
-            <label>
-              <input type="checkbox" class="checkbox" />
-            </label>
-          </th>
-          <td>
-            <div class="flex items-center gap-3">
-              <div class="avatar">
-                <div class="mask mask-squircle h-12 w-12">
-                  <img
-                    src="https://img.daisyui.com/images/profile/demo/3@94.webp"
-                    alt="Avatar Tailwind CSS Component" />
-                </div>
-              </div>
-              <div>
-                <div class="font-bold">Brice Swyre</div>
-                <div class="text-sm opacity-50">China</div>
-              </div>
-            </div>
-          </td>
-          <td>
-            Carroll Group
-            <br />
-            <span class="badge badge-ghost badge-sm">Tax Accountant</span>
-          </td>
-          <td>Red</td>
-          <th>
-            <button class="btn btn-ghost btn-xs">details</button>
-          </th>
-        </tr>
-        <!-- row 3 -->
-        <tr>
-          <th>
-            <label>
-              <input type="checkbox" class="checkbox" />
-            </label>
-          </th>
-          <td>
-            <div class="flex items-center gap-3">
-              <div class="avatar">
-                <div class="mask mask-squircle h-12 w-12">
-                  <img
-                    src="https://img.daisyui.com/images/profile/demo/4@94.webp"
-                    alt="Avatar Tailwind CSS Component" />
-                </div>
-              </div>
-              <div>
-                <div class="font-bold">Marjy Ferencz</div>
-                <div class="text-sm opacity-50">Russia</div>
-              </div>
-            </div>
-          </td>
-          <td>
-            Rowe-Schoen
-            <br />
-            <span class="badge badge-ghost badge-sm">Office Assistant I</span>
-          </td>
-          <td>Crimson</td>
-          <th>
-            <button class="btn btn-ghost btn-xs">details</button>
-          </th>
-        </tr>
-        <!-- row 4 -->
-        <tr>
-          <th>
-            <label>
-              <input type="checkbox" class="checkbox" />
-            </label>
-          </th>
-          <td>
-            <div class="flex items-center gap-3">
-              <div class="avatar">
-                <div class="mask mask-squircle h-12 w-12">
-                  <img
-                    src="https://img.daisyui.com/images/profile/demo/5@94.webp"
-                    alt="Avatar Tailwind CSS Component" />
-                </div>
-              </div>
-              <div>
-                <div class="font-bold">Yancy Tear</div>
-                <div class="text-sm opacity-50">Brazil</div>
-              </div>
-            </div>
-          </td>
-          <td>
-            Wyman-Ledner
-            <br />
-            <span class="badge badge-ghost badge-sm">Community Outreach Specialist</span>
-          </td>
-          <td>Indigo</td>
-          <th>
-            <button class="btn btn-ghost btn-xs">details</button>
-          </th>
-        </tr>
-      </tbody>
-      <!-- foot -->
-      <tfoot>
-        <tr>
-          <th></th>
-          <th>Name</th>
-          <th>Job</th>
-          <th>Favorite Color</th>
-          <th></th>
-        </tr>
-      </tfoot>
-    </table>
-  </div>
+  opens automatically onMount,
+  press esc to close
+    <!-- name of each tab group should be unique -->
+<div class="tabs tabs-lift">
+  <label class="tab">
+    <input type="radio" name="my_tabs_4" />
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4 me-2"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" /></svg>
+    Live
+  </label>
+  <div class="tab-content bg-base-100 border-base-300 p-6">Tab content 1</div>
+
+  <label class="tab">
+    <input type="radio" name="my_tabs_4" checked="checked" />
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4 me-2"><path stroke-linecap="round" stroke-linejoin="round" d="M15.182 15.182a4.5 4.5 0 0 1-6.364 0M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Z" /></svg>
+    Laugh
+  </label>
+  <div class="tab-content bg-base-100 border-base-300 p-6">Tab content 2</div>
+
+  <label class="tab">
+    <input type="radio" name="my_tabs_4" />
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4 me-2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" /></svg>
+    Love
+  </label>
+  <div class="tab-content bg-base-100 border-base-300 p-6">Tab content 3</div>
+</div>
+
+
   {/snippet}
   
 </Modal>

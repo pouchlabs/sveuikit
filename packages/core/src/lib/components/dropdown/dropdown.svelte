@@ -29,7 +29,7 @@ import { onClickOutside } from "runed";
     })
 </script>
 <div class:dropdown-hover={hover === true} class:dropdown-open={open=== true} class="dropdown">
-    <div onmouseenter={()=>toggleDropDown()} onclick={()=>{toggleDropDown()}}   class="flex flex-wrap gap-1 justify-content-center align-middle items-center ">
+    <div onmouseenter={()=>{if(hover === true )toggleDropDown()}} onclick={()=>{toggleDropDown()}}   class="flex flex-wrap gap-1 justify-content-center align-middle items-center ">
          
              {@render toggle?.()}
     </div>

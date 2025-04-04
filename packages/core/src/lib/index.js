@@ -12,6 +12,11 @@ import Loader from "./components/loader";
 import Button from "./components/button";
 import Card from "./components/card";
 import Dropdown from "./components/dropdown";
+import Modal from "./components/modal/modal.svelte";
+import Toggle from "./components/toggles/toggle.svelte";
+import Checkbox from "./components/checkboxes/checkbox.svelte";
+import Radio from "./components/radio/radio.svelte";
+import Range from "./components/range/range.svelte";
 //utils
 import {autoLoadTheme} from "./utils/autoloadtheme.js"
 export {
@@ -24,5 +29,10 @@ export {
     Button,
     Card,
     Dropdown,
+    Modal,
+    Checkbox,
+    Toggle,
+    Radio,
+    Range,
     autoLoadTheme
 }

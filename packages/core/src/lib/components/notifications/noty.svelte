@@ -21,7 +21,7 @@ $effect(()=>{
 </script>
 
  
-    <div id={id}   role="alert" in:scale  class="alert {variant}  trancateTexts mx-auto    border outline-1 z-[10000000]   rounded-box  border-white/5   outline-black/5 alert-vertical sm:alert-horizontal shadow-{shadow}">
+    <div id={id}   role="alert"   class="alert animate-jump-in {variant}   trancateTexts mx-auto    border outline-1 z-[10000000]   rounded-box m-2 border-white/5   outline-black/5 alert-vertical sm:alert-horizontal shadow-{shadow} ">
       {#if isSnack === false}
       <svg
         xmlns="http://www.w3.org/2000/svg"
