@@ -94,6 +94,7 @@
 		"url": "git+https://github.com/pouchlabs/sveuikit.git"
 	},
 	"dependencies": {
+		"nanoid": "^5.1.5",
 		"runed": "^0.25.0",
 		"tailwindcss-animated": "^2.0.0"
 	}

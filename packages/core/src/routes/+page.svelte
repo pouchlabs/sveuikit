@@ -1,5 +1,5 @@
 <script>
-import {ThemeSelect,Loader,Button,Card,V1Layout, Tab} from "$lib"
+import {ThemeSelect,Loader,Button,Card,V1Layout, Tab, Table} from "$lib"
 	import Dropdown from "$lib/components/dropdown/dropdown.svelte";
   import Toggle from "$lib/components/toggles/toggle.svelte";
   import Checkbox from "$lib/components/checkboxes/checkbox.svelte";
@@ -160,13 +160,49 @@ let autoModal;
   press esc to close
     <Tab  onActiveTab={(e)=>{
      console.log(e)
-    }} tabs={[{name:"movies",content:"movies",checked:true},{name:"apps",content:"apps"}]}>
+    }} tabs={[{name:"movies",content:"movies",icon:`<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4 me-2"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" /></svg>`,checked:true},{name:"apps",content:"apps"}]}>
 
     </Tab> 
-
+ 
 
   {/snippet}
   
 </Modal>
+
+  <Table onSelected={(d)=>{
+    console.log(d)
+  }} checkbox indexed={true}>
+     {#snippet header()}
+     <label class="input">
+      <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <g
+          stroke-linejoin="round"
+          stroke-linecap="round"
+          stroke-width="2.5"
+          fill="none"
+          stroke="currentColor"
+        >
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.3-4.3"></path>
+        </g>
+      </svg>
+      <input type="search" class="grow" placeholder="Search" />
+      <kbd class="kbd kbd-sm">⌘</kbd>
+      <kbd class="kbd kbd-sm">K</kbd>
+    </label>    
+     {/snippet}
+     {#snippet footer()}
+     <div class="join">
+      <button class="join-item btn">1</button>
+      <button class="join-item btn">2</button>
+      <button class="join-item btn btn-disabled">...</button>
+      <button class="join-item btn">99</button>
+      <button class="join-item btn">100</button>
+    </div>
+     {/snippet}
+  </Table>
+
 </div>
 </section>
+
+

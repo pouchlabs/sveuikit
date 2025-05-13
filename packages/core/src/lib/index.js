@@ -18,6 +18,7 @@ import Checkbox from "./components/checkboxes/checkbox.svelte";
 import Radio from "./components/radio/radio.svelte";
 import Range from "./components/range/range.svelte";
 import { Tab } from "./components/tabs";
+import {Table} from "./components/tables";
 //utils
 import {autoLoadTheme} from "./utils/autoloadtheme.js"
 export {
@@ -36,5 +37,6 @@ export {
     Radio,
     Range,
     Tab,
+    Table,
     autoLoadTheme
 }

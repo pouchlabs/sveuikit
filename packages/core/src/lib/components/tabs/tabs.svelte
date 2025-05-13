@@ -41,7 +41,7 @@
                <label id={tab.name+i} onclick={(e)=>{toggleTab(tab.name+i)}} class:tab-active={activetab === tab.name+i} class="tab">
                 
                {@html tab?.icon}
-                {tab.name+i}
+                {tab.name}
               </label>
              
                {/if}
