@@ -12,9 +12,10 @@
 
 html{
     min-height:100vh;
-    max-width:calc(100vw) !important;
+    max-width:calc(100vw - 10px) !important;
     display:contents;
     width:100vw !important;
+    overflow-x:hidden;
   }
   body{
     width:100% !important;

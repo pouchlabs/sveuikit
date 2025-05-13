@@ -17,6 +17,7 @@ import Toggle from "./components/toggles/toggle.svelte";
 import Checkbox from "./components/checkboxes/checkbox.svelte";
 import Radio from "./components/radio/radio.svelte";
 import Range from "./components/range/range.svelte";
+import { Tab } from "./components/tabs";
 //utils
 import {autoLoadTheme} from "./utils/autoloadtheme.js"
 export {
@@ -34,5 +35,6 @@ export {
     Toggle,
     Radio,
     Range,
+    Tab,
     autoLoadTheme
 }
